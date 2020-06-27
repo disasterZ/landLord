@@ -4,6 +4,10 @@ import indi.hj.lordland.object.Card;
 import indi.hj.lordland.object.HandCard;
 import indi.hj.lordland.object.Player;
 import indi.hj.lordland.object.Pokes;
+import indi.hj.lordland.ui.DrawFarme;
+import indi.hj.lordland.ui.GameFarme;
+
+import javax.swing.*;
 
 /**
  * @author Joe
@@ -11,6 +15,7 @@ import indi.hj.lordland.object.Pokes;
  */
 public class Test {
     public static void main(String[] args) {
+        GameFarme gameFarme=new GameFarme();
         Pokes pokes=Pokes.getInstance();
         pokes.fullCard();
         pokes.shuffle();
@@ -43,6 +48,10 @@ public class Test {
         System.out.println(three.toString());
         three.removeCards(hand.getCards());
         System.out.println(three.toString());
+        DrawFarme drawFarme=new DrawFarme(one.getCards(),70,30,two.getCards(),70,190,
+                three.getCards(),70,380,hand.getCards(),70,540);
+        gameFarme.setContentPane(drawFarme);
+        gameFarme.setVisible(true);
     }
 
 }
